@@ -1,20 +1,19 @@
 package conversiones;
 
-import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
-import java.io.IOException;
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 
-public class ConsultaConversion {
+public class ConsultaConversion  {
 
-    public Conversiones laConversion() {
-        URI direccion = URI.create("https://v6.exchangerate-api.com/v6/191845d3873e1621783287d4/pair/USD/ARS");
-
+    public Conversiones laConversion(String moneda1,String moneda2) {
+        URI direccion = URI.create("https://v6.exchangerate-api.com/v6/191845d3873e1621783287d4/pair/"
+                + moneda1+"/"+moneda2);
+        System.out.println(direccion);
         Gson gson = new GsonBuilder()
                 .setPrettyPrinting()
                 .create();
