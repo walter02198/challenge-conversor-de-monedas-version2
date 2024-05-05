@@ -9,10 +9,6 @@ public class LasMonedas extends Monedas  {
     String reales = "BRL";
     public int opcionConver;
     public double value;
-
-
-
-
     public String convertir() {
         if (opcionConver == 1) {
            moneda1="dolar";
@@ -44,16 +40,6 @@ public class LasMonedas extends Monedas  {
     public double getValue() {
         return value;
     }
-    public String getMoneda1() {
-        return moneda1;
-    }
-
-    public String getMoneda2() {return moneda2;}
-
-    public double getConversion() {
-        return conversion;
-    }
-
     @Override
         public String toString() {
         return "El resultado de transformar "+ getValue()+" "
