@@ -2,49 +2,71 @@ package calculos;
 
 import conversiones.Conversiones;
 
-public class LasMonedas extends Monedas  {
-    String dolar = "USD";
-    String pesosArgentinos = "ARS";
-    String pesosColombianos = "COP";
-    String reales = "BRL";
+public class LasMonedas  {
     public int opcionConver;
-    public double value;
+    public double valor;
+    private double conversion;
+    String moneda1;
+    String moneda2;
+
+    public LasMonedas() {
+
+    }
     public String convertir() {
         if (opcionConver == 1) {
-           moneda1="dolar";
-            moneda2="Pesos Argentinos";
-            return dolar + "/" + pesosArgentinos;
+            return "USD/ARS";
         } else if (opcionConver == 2) {
-            moneda1="Pesos Argentinos";
-            moneda2="Dolar";
-            return pesosArgentinos + "/" + dolar;
+            return "ARS/USD";
         } else if (opcionConver == 3) {
-            moneda1="Dolar";
-            moneda2="Reales";
-            return dolar + "/" + reales;
+            return "USD/BRL";
         } else if (opcionConver == 4) {
-            moneda1="Reales";
-            moneda2="Dolar";
-            return reales + "/" + dolar;
+            return "BRL/USD";
         } else if (opcionConver == 5) {
-            moneda1="Dolar";
-            moneda2="Pesos Colombianos";
-            return dolar + "/" + pesosColombianos;
+            return "USD/COP";
         } else if (opcionConver == 6) {
-            moneda1="Pesos Colombianos";
-            moneda2="Dolar";
-            return pesosColombianos + "/" + dolar;
+            return "COP/USD";
         }
         return null;
     }
-    public double getValue() {
-        return value;
+    public  LasMonedas(Conversiones estaConversion){
+        this.conversion=estaConversion.conversion_rate();
+        this.moneda1 = estaConversion.base_code();
+        this.moneda2=estaConversion.target_code();
+    }
+    public String getMoneda1() {
+        if(moneda1.equals("USD")){
+            return "Dolar";
+        }else if(moneda1.equals("ARS")) {
+            return "Pesos Argentinos";
+        } else if(moneda1.equals("COP")) {
+            return "Pesos Colombianos";
+        } else if(moneda1.equals("BRL")) {
+            return "Reales";
+        }
+        return null;
+    }
+    public String getMoneda2() {
+        if(moneda2.equals("USD")){
+            return "Dolar";
+        }else if(moneda2.equals("ARS")) {
+            return "Pesos Argentinos";
+        } else if(moneda2.equals("COP")) {
+            return "Pesos Colombianos";
+        } else if(moneda2.equals("BRL")) {
+            return "Reales";
+        }
+        return null;
+    }
+    public double getConversion() {
+        return conversion;
     }
     @Override
-        public String toString() {
-        return "El resultado de transformar "+ getValue()+" "
-                +getMoneda1()+ " a "+getMoneda2()+" es: " + getValue()*getConversion()+" "+getMoneda2();
+    public String toString() {
+        return "El Resultado de transformar: "+valor+" "+getMoneda1()+" en "+getMoneda2()
+                +" es igual a "+getConversion()*valor+" "+getMoneda2();
     }
 }
+
+
 
 

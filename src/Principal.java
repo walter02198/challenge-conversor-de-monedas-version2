@@ -36,9 +36,8 @@ public class Principal {
                  teclado.nextLine();
                 conver.opcionConver=opcion;
                 Conversiones miConversion  = moneda.laConversion(conver);
-                Monedas miMoneda = new Monedas(miConversion);
+                LasMonedas miMoneda=new LasMonedas(miConversion);
                 miMoneda.valor=valorAConvertir;
-                conver.value=valorAConvertir;
                 System.out.println(miMoneda);
             }else if(opcion!=7){
                 System.out.println("Opcion no valida");

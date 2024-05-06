@@ -14,7 +14,6 @@ public class ConsultaConversion  {
     public Conversiones laConversion(LasMonedas conver) {
         String direccion = "https://v6.exchangerate-api.com/v6/191845d3873e1621783287d4/pair/"
                 + conver.convertir();
-        //System.out.println(direccion);
 
         Gson gson = new GsonBuilder().create();
 
